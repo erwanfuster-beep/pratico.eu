@@ -144,7 +144,7 @@ document.addEventListener('pointermove',e=>{
  const x=d.originX+(e.clientX-d.startX)/Math.max(1,r.width)*100,y=d.originY+(e.clientY-d.startY)/Math.max(1,r.height)*100,p=clampForItem(x,y,d.element,d.stage);
  d.element.style.left=p.x+'%';d.element.style.top=p.y+'%';d.element.style.zIndex=String(Math.round(p.y));updateObject(d.id,p.x,p.y,false);
 });
-document.addEventListener('pointerup',e=>{if(!drag||(drag.pointerId!=null&&e.pointerId!=null&&drag.pointerId!==e.pointerId))return;const d=drag;drag=null;d.element.classList.remove('dragging');if(d.moved)save()});
+document.addEventListener('pointerup',e=>{if(!drag||(drag.pointerId!=null&&e.pointerId!=null&&drag.pointerId!==e.pointerId))return;const d=drag;drag=null;d.element.classList.remove('dragging');if(d.moved)save();ctx?.rerender?.()});
 document.addEventListener('pointercancel',()=>{if(!drag)return;drag.element.classList.remove('dragging');drag=null;save()});
 document.addEventListener('click',e=>{if(!ctx)return;const b=e.target.closest('button');
 if(b?.dataset.place){placing=b.dataset.place;selected=null;ctx.rerender();currentScene()?.scrollIntoView?.({behavior:'smooth',block:'center'});return}

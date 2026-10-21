@@ -1,0 +1,10 @@
+PRATICO MULTIVERSE V3 — INSTALLATION
+
+1. Décompresser ce ZIP.
+2. Envoyer index.html, style.css, app.js, config.js et favicon.svg à la racine du dépôt GitHub Pages.
+3. Conserver les tables et les données Supabase existantes. NE PAS réexécuter supabase_setup.sql ou catalogue_v2.sql si déjà exécutés.
+4. Actualiser le site (Ctrl+F5) et tester compte, booster, collection, marché et téléphone.
+
+La V3 ajoute des illustrations graphiques originales générées en CSS (aucune image officielle utilisée) et la révélation des cartes au toucher. Le catalogue V2 existant est réutilisé. Les tirages restent assurés par la fonction SQL existante open_free_pack. Aucun changement SQL n'est requis pour cette V3.
+
+NOTE : Les comptes, le marché et les boosters dépendent du projet Supabase en ligne. Ce livrable n'a pas été testé en conditions réelles sur ce projet. Vérifier les politiques RLS et les fonctions SQL avant ouverture publique.

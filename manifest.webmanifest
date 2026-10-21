@@ -1,12 +1,12 @@
 {
-  "name": "Practico — ton espace quotidien",
+  "name": "Practico Home — Mon refuge",
   "short_name": "Practico",
-  "description": "Planifie ta journée, suis tes habitudes et prends le temps de te concentrer.",
+  "description": "Tes habitudes font grandir ton refuge. Gagne de l'XP, décore et avance à ton rythme.",
   "start_url": "./#dashboard",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b1020",
-  "theme_color": "#0b1020",
+  "background_color": "#101222",
+  "theme_color": "#101222",
   "lang": "fr",
   "icons": [
     {

@@ -164,3 +164,17 @@ body{background:#111426}
 @media(max-width:760px){.top-actions{gap:5px}.cozy-top-hud{gap:4px}.cozy-hud-level,.cozy-hud-coins{padding:8px 7px;font-size:10px}.cozy-banner{min-height:auto}.cozy-banner-copy{padding:25px}.cozy-hero-text h1{font-size:clamp(33px,8vw,50px)}.cozy-hero-text p{font-size:13px}.cozy-banner-scene{min-height:220px;padding:10px 20px 25px}.cozy-banner-scene .cozy-room{aspect-ratio:1.53/1}.cozy-page-top{display:block}.cozy-page-top>.btn,.cozy-bank{display:inline-block;margin-top:14px}.cozy-home-toolbar{padding:10px}.cozy-home-select{flex-wrap:wrap;width:100%}.cozy-home-select select{flex:1;max-width:none}.cozy-weather-toggles{width:100%}.cozy-weather-toggles button{flex:1;font-size:10px;padding:9px}.cozy-stage-shell{padding:6px;border-radius:17px}.cozy-stage-shell .cozy-room{border-radius:13px;min-height:265px;aspect-ratio:1.13/1}.cozy-window-frame{left:36%;width:32%}.cozy-object{scale:.8;transform:translate(-60%,-90%)}.cozy-stage-help{flex-wrap:wrap}.cozy-remove-btn{width:100%}.cozy-side-panel{grid-template-columns:1fr}.cozy-inventory-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.cozy-shop-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.cozy-shop-art{min-height:122px}.cozy-shop-art svg{width:120px;height:115px}.cozy-shop-info{padding:12px;min-height:192px}.cozy-shop-info h3{font-size:16px}.cozy-shop-info p{font-size:11px}.cozy-shop-info .btn{font-size:11px;padding:10px 6px}.cozy-property{min-height:220px}.cozy-home-cards{grid-template-columns:1fr 1fr;gap:9px}.cozy-property-icon{font-size:42px}.cozy-property-body{padding:12px}.cozy-property-body h3{font-size:17px}.cozy-property-body p{max-width:none;font-size:10px}.cozy-property-body .btn{font-size:11px;padding:9px 5px}}
 @media(max-width:400px){.cozy-home-cards{grid-template-columns:1fr}.cozy-banner-scene{min-height:195px}.cozy-shop-grid{grid-template-columns:1fr 1fr}.cozy-hero-actions .btn{width:100%}.cozy-room-stamp{font-size:9px;bottom:8px;left:8px}}
 @media(prefers-reduced-motion:reduce){.cozy-cloud,.cozy-rain,.cozy-breathe-orb{animation:none!important}}
+
+/* Final V3 conveniences */
+.cozy-dashboard-intro{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:15px}
+.cozy-dashboard-intro .subtitle{margin:5px 0 0}
+.cozy-quicklinks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:-2px 0 22px}
+.cozy-quicklinks button{border:1px solid #e3bdcf30;border-radius:13px;padding:16px;background:linear-gradient(110deg,#33283c,#20283c);color:#f6d9e1;text-align:left;font-size:13px;font-weight:800;transition:.2s}
+.cozy-quicklinks button:hover{transform:translateY(-3px);border-color:#e5bacd80}
+.cozy-quicklinks span{float:right;color:#d5bbdc}
+.cozy-tutorial{border:1px solid #dec3a967;background:linear-gradient(110deg,#4a3b49,#303344);border-radius:16px;padding:17px 21px;margin-bottom:13px;display:flex;gap:20px;justify-content:space-between;align-items:center}
+.cozy-tutorial h3{font:800 19px Outfit;margin:6px 0;color:#fff4eb}
+.cozy-tutorial p{font-size:12px;line-height:1.6;color:#d8cfda;margin:0}
+.cozy-tutorial b{color:#eec6ac}
+.cozy-tutorial .btn{flex-shrink:0}
+@media(max-width:760px){.crumb{display:none}.cozy-dashboard-intro .pill{display:none}.cozy-quicklinks{gap:7px}.cozy-quicklinks button{padding:11px 8px;font-size:11px}.cozy-tutorial{display:block}.cozy-tutorial .btn{margin-top:13px;width:100%}}

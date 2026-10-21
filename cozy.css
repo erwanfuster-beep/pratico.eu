@@ -210,3 +210,43 @@ body{background:#111426}
 .cozy-room.home-airliner .cozy-window-frame{width:44%;left:27%;height:35%;border-radius:80px}
 .cozy-room.home-airliner .cozy-floor{background:linear-gradient(110deg,#9aa5b7,#697488)}
 @media(max-width:760px){.cozy-room.home-yacht .cozy-window-frame,.cozy-room.home-villa .cozy-window-frame{width:53%;left:26%}}
+
+/* Practico Cozy V3.1 - precision room editor */
+.cozy-object{
+  width:min(var(--fw),28%);
+  max-width:none;
+  height:auto;
+  aspect-ratio:180 / 155;
+  transform:translate(-50%,-96%);
+  transition:filter .2s;
+  will-change:left,top;
+}
+.cozy-object svg{width:100%;height:100%;aspect-ratio:180 / 155}
+.cozy-room.placing-mode{outline:3px solid #efd1ba7d;outline-offset:-6px}
+.cozy-room.placing-mode::after{
+  content:'';
+  position:absolute;inset:60% 0 0;
+  z-index:5;
+  pointer-events:none;
+  background:linear-gradient(90deg,#f1cbab25 1px,transparent 1px),linear-gradient(#f1cbab25 1px,transparent 1px);
+  background-size:12% 24%;
+  mask-image:linear-gradient(#fff7,transparent);
+}
+.cozy-object.selected:after{pointer-events:none}
+.cozy-object:focus-visible{outline:2px dashed #ffe8c9;outline-offset:4px}
+.cozy-stage-buttons{display:flex;gap:8px;flex-wrap:wrap}
+.cozy-stage-buttons .cozy-remove-btn{width:auto;flex:1}
+.cozy-nudge{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin:0 0 15px;padding:12px;border:1px solid #ffffff1d;background:#211f35;border-radius:14px}
+.cozy-nudge>span{color:#cbbbc9;font-size:10px;letter-spacing:.08em;font-weight:800;margin:0 9px}
+.cozy-nudge>button{border:1px solid #bda1c058;background:#3b3046;color:#f4d9e7;font-size:22px;font-weight:900;min-width:46px;min-height:42px;border-radius:11px;touch-action:manipulation}
+.cozy-nudge>button:hover,.cozy-nudge>button:focus-visible{background:#8c638d;color:white}
+.cozy-stage-help{gap:12px}
+.cozy-stage-help>span{flex:1;min-width:190px}
+@media(max-width:760px){
+ .cozy-object{scale:1;transform:translate(-50%,-96%);width:min(var(--fw),29%);height:auto}
+ .cozy-stage-buttons{width:100%}
+ .cozy-stage-buttons .cozy-remove-btn{min-height:43px}
+ .cozy-nudge>span{flex-basis:100%;text-align:center}
+ .cozy-nudge>span:last-child{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.cozy-object{transition:none;will-change:auto}}

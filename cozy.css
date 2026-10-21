@@ -178,3 +178,35 @@ body{background:#111426}
 .cozy-tutorial b{color:#eec6ac}
 .cozy-tutorial .btn{flex-shrink:0}
 @media(max-width:760px){.crumb{display:none}.cozy-dashboard-intro .pill{display:none}.cozy-quicklinks{gap:7px}.cozy-quicklinks button{padding:11px 8px;font-size:11px}.cozy-tutorial{display:block}.cozy-tutorial .btn{margin-top:13px;width:100%}}
+
+/* Distinct worlds using original authored room illustration */
+.cozy-room.home-cottage .cozy-backwall{background:repeating-linear-gradient(0deg,#674a3910 0px,#674a3910 2px,transparent 3px,transparent 69px),linear-gradient(115deg,#fff2d91e,transparent 56%),#bfa084}
+.cozy-room.home-cottage .cozy-sidewall{background:repeating-linear-gradient(0deg,#65463224 0px,#65463224 2px,#91765c 3px,#91765c 68px)}
+.cozy-room.home-cottage .cozy-window-frame{border-radius:95px 95px 6px 6px}
+.cozy-room.home-cottage .cozy-window-frame:after{content:'✾';position:absolute;left:-35px;bottom:13px;font-size:28px;color:#a3bfa2;text-shadow:0 0 8px #50815c}
+.cozy-room.home-villa .cozy-window-frame{width:53%;left:30%;height:48%;top:6%;border-radius:8px;background:linear-gradient(#f9e1cd,#d1adb3)}
+.cozy-room.home-villa .cozy-window-cross:before{left:33%;box-shadow:75px 0 #c5a6a9}
+.cozy-room.home-villa .cozy-window-cross:after{display:none}
+.cozy-room.home-villa .cozy-baseboard{background:#d2a288}
+.cozy-room.home-manor .cozy-window-frame{left:36%;top:3%;height:51%;width:28%;border-radius:120px 120px 3px 3px;border:8px solid #5c4a68;background:#aca3b2}
+.cozy-room.home-manor .cozy-backwall{background:repeating-linear-gradient(0deg,transparent 0px,transparent 92px,#513f5d25 93px,#513f5d25 95px),#81758d}
+.cozy-room.home-manor .cozy-base-lamp{font-size:44px;top:11%;right:13%;filter:drop-shadow(0 0 17px #ffe1a5)}
+.cozy-room.home-manor .cozy-floor{background:repeating-linear-gradient(32deg,transparent 0px,transparent 50px,#ffffff18 51px,#ffffff18 54px),linear-gradient(155deg,#ad93a0,#6d6378)}
+.cozy-room.home-sailboat .cozy-window-frame,.cozy-room.home-fishing .cozy-window-frame{width:29%;height:42%;left:34%;top:10%;border-radius:50%;border:10px solid #a8adbd;background:#d1d8db;box-shadow:inset 0 0 0 4px #637484,0 9px 16px #1a2b4565}
+.cozy-room.home-sailboat .cozy-window-cross:before,.cozy-room.home-fishing .cozy-window-cross:before{display:none}
+.cozy-room.home-sailboat .cozy-window-cross:after,.cozy-room.home-fishing .cozy-window-cross:after{height:7px;top:55%;background:#b9c4d1}
+.cozy-room.home-sailboat .cozy-backwall{background:repeating-linear-gradient(0deg,transparent 0px,transparent 37px,#7b869929 38px,#7b869929 41px),#aab3bc}
+.cozy-room.home-fishing .cozy-backwall{background:repeating-linear-gradient(0deg,transparent 0px,transparent 28px,#577f8a3c 29px,#577f8a3c 32px),#829da6}
+.cozy-room.home-fishing .cozy-sidewall{background:repeating-linear-gradient(135deg,#d1cab41f 0px,#d1cab41f 5px,#51687617 7px,#51687617 22px),#748a93}
+.cozy-room.home-yacht .cozy-window-frame{width:57%;height:37%;left:28%;top:11%;border-radius:90px 20px 30px 90px;border:7px solid #c3d2d8}
+.cozy-room.home-yacht .cozy-window-cross:after{display:none}
+.cozy-room.home-yacht .cozy-window-cross:before{width:6px;background:#d2e1e6}
+.cozy-room.home-yacht .cozy-backwall{background:linear-gradient(#ffffff1c,transparent),#a3b7c1}
+.cozy-room.home-yacht .cozy-floor{background:repeating-linear-gradient(0deg,transparent 0px,transparent 24px,#ffffff2e 25px,#ffffff2e 27px),linear-gradient(140deg,#d3ad88,#b38e6f)}
+.cozy-room.home-plane .cozy-window-frame,.cozy-room.home-airliner .cozy-window-frame{width:27%;height:34%;left:35%;top:10%;border-radius:49%;border:10px solid #e1dde0;box-shadow:inset 0 0 0 3px #7a8699,0 8px 16px #1a2b4565}
+.cozy-room.home-plane .cozy-window-cross,.cozy-room.home-airliner .cozy-window-cross{display:none}
+.cozy-room.home-plane .cozy-backwall,.cozy-room.home-airliner .cozy-backwall{background:linear-gradient(180deg,#ffffff19,transparent),#b5b5c3}
+.cozy-room.home-plane .cozy-sidewall,.cozy-room.home-airliner .cozy-sidewall{background:#8b94a8}
+.cozy-room.home-airliner .cozy-window-frame{width:44%;left:27%;height:35%;border-radius:80px}
+.cozy-room.home-airliner .cozy-floor{background:linear-gradient(110deg,#9aa5b7,#697488)}
+@media(max-width:760px){.cozy-room.home-yacht .cozy-window-frame,.cozy-room.home-villa .cozy-window-frame{width:53%;left:26%}}

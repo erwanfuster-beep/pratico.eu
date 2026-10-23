@@ -1,69 +1,60 @@
-# Practico Home — Cozy World V3 🏡
+# Practico — Budget, agenda, courses et projets
 
-**Un vrai petit monde qui grandit avec tes progrès dans la vie.** Site statique et responsive, hébergé sur GitHub Pages, avec authentification Supabase.
+Site : https://erwanfuster-beep.github.io/pratico.eu/
+Dépôt : https://github.com/erwanfuster-beep/pratico.eu
 
-## Jouer
-1. Ouvre **Mon refuge**. Tu débutes dans **Le studio oublié**, avec un vieux matelas, une caisse, 35 pièces et une météo pluvieuse cosy.
-2. Termine des tâches (**+35 XP** la première validation, 8 récompenses par jour au maximum), valide des habitudes (**+25 XP**, une fois par habitude et par jour) ou termine des sessions de concentration (**+2 XP par minute**, 4 récompenses par jour maximum). Les actions restent utilisables au-delà des plafonds.
-3. Chaque nouveau niveau offre des **pièces virtuelles** (aucun argent réel), utilisables dans la **Boutique**.
-4. Achète des meubles originaux dessinés en SVG, puis ouvre **Mon refuge**, choisis l'objet dans ton inventaire et touche le sol pour le placer. Glisse-le au doigt ou à la souris pour le déplacer. Pour une navigation clavier, utilise **Entrée** pour sélectionner puis **les flèches** pour déplacer.
-5. Change de lieu lorsque tu as le niveau et les pièces nécessaires. Tous tes meubles peuvent être installés dans chaque logement, **avec des positions indépendantes par logement**. Tu peux racheter plusieurs exemplaires du même meuble.
-6. Météo : le bouton **Pluie** anime les gouttes à la fenêtre ; **Auto/Jour/Nuit** suit l'heure locale du navigateur entre 7 h et 19 h lorsqu'il est en mode Auto ; **Son** ajoute une ambiance pluvieuse optionnelle et désactivée par défaut.
-7. **Mode tranquillité** : 60 secondes de respiration guidée ; premier exercice du jour **+15 XP et +5 pièces**.
+## Ce qui fonctionne maintenant
 
-## Lieux disponibles
-- Niveau 1 : Le studio oublié
-- Niveau 4 : La maison douce
-- Niveau 6 : Le petit voilier
-- Niveau 10 : La villa solaire
-- Niveau 12 : Le bateau de pêche
-- Niveau 13 : L'avion vintage
-- Niveau 17 : Le yacht panoramique
-- Niveau 19 : Le manoir des étoiles
-- Niveau 24 : Le grand avion privé
+- Design clair et responsive pour ordinateur et téléphone.
+- Revenu fictif de départ de **1 500 € / mois**, modifiable.
+- Enveloppes mensuelles (courses, logement, transport, vacances, loisirs, santé, autres).
+- Budget disponible calculé depuis les opérations de **simulation** enregistrées.
+- Historique mensuel, bilan annuel et graphiques.
+- Agenda pour les échéances et coûts prévus (non déduits avant validation).
+- Mini-panier de courses à prix fictifs (aucun lien aux prix de Courses U), dont la simulation peut être déduite du budget.
+- Projets de voyage, coûts prévus et simulations de train, vol, hôtel et location de voiture.
+- Liens vers des sites marchands externes, sans suivi de commande ni paiement sur Practico.
+- Connexion Supabase Auth déjà existante ; sauvegarde dans le champ JSON `finance` de `public.practico_data` et conservation des anciennes données `tasks`, `habits`, `game`, etc.
+- Export JSON, réinitialisation du budget, mode invité avec stockage navigateur.
 
-Chaque logement possède ses propres couleurs, sa fenêtre et une disposition sauvegardée séparément.
+## Très important : les achats réels automatiques ne sont PAS encore activés
 
-## Structure
-- \`index.html\` : structure et navigation
-- \`practico.css\` : interface utilitaire
-- \`cozy.css\` : scène illustrée, logements, boutique, pluie, mobilier, mobile
-- \`cozy.js\` : moteur de jeu solo, XP, inventaire, décorations, météo
-- \`practico.js\` : tâches, habitudes, notes, focus, comptes et persistance
-- \`config.js\` : URL et clé **publique** Supabase (jamais une clé secrète)
-- \`supabase-practico.sql\` : schéma et RLS pour la synchronisation
+Le produit final envisagé : après un achat réel chez un commerçant, Practico doit enregistrer automatiquement la transaction (par exemple Ryanair -300 €, Hôtel -1 000 €) et recalculer le solde **fictif**. Pas de validation manuelle à chaque dépense.
 
-## À FAIRE UNE FOIS DANS SUPABASE (pour plusieurs appareils)
-1. Ouvre ton projet Supabase existant.
-2. Clique sur **SQL Editor**, puis **New query**.
-3. Copie-colle le fichier [supabase-practico.sql](./supabase-practico.sql).
-4. Clique sur **Run**.
-5. Connecte-toi sur Practico puis ouvre **Mon compte** : le statut doit indiquer « Synchronisation cloud active ».
+Pour détecter **aussi** les dépenses faites en magasin et via le téléphone, une extension Chrome ne suffit pas. La voie sérieuse est l'**information sur les comptes bancaires (open banking DSP2)**, via un prestataire autorisé, en **lecture seule** et avec consentement explicite. Deux prestataires à évaluer :
+- Bridge : https://docs.bridgeapi.io/docs/quickstart
+- Powens : https://www.powens.com/fr/produits/transactions/
 
-Le SQL ne supprime **aucune** ancienne table. La règle **RLS** limite les lignes aux données du propriétaire authentifié. Sans ce SQL, la connexion Auth peut fonctionner, mais tâches, notes, XP, pièces et décorations restent sauvegardés sur **cet appareil seulement**. Les données enregistrées en mode invité peuvent être reprises à la première connexion si le compte n'a pas encore de données, mais cette migration doit être testée.
+Les API exigent un accès développeur / contrat et des identifiants **secrets**, qui ne doivent jamais être mis dans `config.js` ni dans GitHub Pages. La connexion bancaire exigera un **backend sécurisé** (par ex. Supabase Edge Functions et un coffre de secrets côté serveur), la gestion du consentement, des dates d'expiration, de la déduplication des opérations, des remboursements et une politique de confidentialité adaptée.
 
-## Hébergement et domaine
-- Repo : https://github.com/erwanfuster-beep/pratico.eu
-- GitHub Pages : https://erwanfuster-beep.github.io/pratico.eu/
-- Pages : Settings > Pages > **Deploy from branch** > \`main\` / \`(root)\`.
+Un parcours automatique réaliste : 
+1. Utilisateur crée son budget fictif, puis choisit **Connecter mes dépenses** (fonction future).
+2. Il sélectionne un prestataire/bancaire et donne son consentement via son interface officielle.
+3. Le serveur sécurisé récupère uniquement les transactions permises et les inscrit sans doublons dans un registre privé.
+4. Practico catégorise les marchands et recalcule le budget automatiquement (cours U → courses, Ryanair → voyages, hôtel → voyages).
+5. Les opérations en attente, remboursements, espèces et commerçants ambigus sont traités séparément.
+6. L'utilisateur peut déconnecter la source, corriger une catégorie et supprimer ses données.
 
-Un dépôt nommé \`pratico.eu\` n'enregistre pas automatiquement le domaine \`practico.eu\`. Le nom de marque de l'application est **Practico**.
+**Attention :** les flux bancaires ne sont pas nécessairement instantanés. Le nom précis de l'article acheté peut ne pas être disponible ; souvent seul le marchand et le montant apparaissent.
 
-## Visuels et droits
-Les meubles, pièces, météo et scènes sont générés à l'aide de **dessins SVG et CSS originaux** inclus dans les fichiers du site. Aucun contenu visuel de jeu tiers ni streaming n'est utilisé. L'ancienne photo Unsplash n'est plus nécessaire à l'interface principale.
+Une **extension facultative**, limitée à des sites supportés, pourrait enrichir le libellé de commande, mais devra demander des permissions minimales, éviter la lecture de moyens de paiement et ne jamais tenter de contourner les protections des sites. Référence Chrome : https://developer.chrome.com/docs/extensions/mv3/declare_permissions
 
-## Vie privée et limites
-- Jeu **solo**, 100 % virtuel, sans argent réel.
-- Le client calcule les XP et pièces **dans le navigateur** ; ce n'est pas une économie compétitive anti-triche. Un mode multijoueur ou classement public demanderait des récompenses contrôlées côté serveur et des règles supplémentaires.
-- Supabase Auth gère le mot de passe ; les données personnelles restent derrière des règles RLS une fois la table configurée.
-- Mode invité : localStorage, susceptible d'être effacé par le navigateur.
-- Un export JSON et un effacement de l'espace sont accessibles dans « Mon compte ».
-- Avant ouverture publique large : mentions légales, politique de confidentialité, contact et procédure d'effacement des comptes, revue du RGPD et tests multi-appareils.
+## Supabase
 
-## Tests rapides
-1. Dans Tâches : crée trois tâches et valide-les. Le niveau 2 devrait se débloquer et donner des pièces.
-2. Dans Boutique : achète « Monstera ». Le solde doit diminuer.
-3. Dans Mon refuge : sélectionne Monstera, touche le sol pour le poser et glisse-le ailleurs.
-4. Actualise la page : la plante doit rester à la même position sur ce navigateur.
-5. Active Pluie puis Jour/Nuit ; teste le placement sur téléphone.
-6. Teste Connexion et synchronisation après exécution du SQL.
+La table `public.practico_data` a déjà été configurée pour le précédent Practico. **Aucun SQL supplémentaire n'est requis pour le prototype Budget**, si la synchronisation de l'ancien site était active. Le nouveau champ `finance` est ajouté à `payload` (JSONB) sans écraser les anciens champs.
+
+Vérifier l'onglet **Mon compte** : il affiche le statut de synchronisation.
+
+## Sécurité / lancement public
+
+- Aucun argent réel détenu, aucun paiement déclenché, aucun mot de passe bancaire collecté.
+- Connexion Supabase seulement avec la clé **publique**.
+- RLS : chaque utilisateur doit accéder uniquement à sa ligne `practico_data`.
+- Tous les prix de démonstration et revenus sont fictifs.
+- Le site n'affirme pas synchroniser la banque ou les achats tant que la fonctionnalité n'existe pas.
+- Prévoir avant lancement public : mentions légales, confidentialité / RGPD, contact, suppression de compte et données, revue de sécurité et tests sur mobiles / avec plusieurs comptes.
+- Les écritures se rapportent à chaque mois indépendant. Le *solde annuel* est une projection simple (12 × revenu mensuel – dépenses de l'année), pas le solde réel d'un compte ou un report bancaire validé.
+
+## Sauvegarde de l'ancienne version
+
+Branche GitHub `archive-practico-home-v3` : sauvegarde du jeu Cozy Home, mobilier, XP et ancienne interface.

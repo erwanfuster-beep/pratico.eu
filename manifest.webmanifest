@@ -1,19 +1,18 @@
 {
-  "name": "Practico Home — Mon refuge",
+  "name": "Practico — Budget & projets",
   "short_name": "Practico",
-  "description": "Tes habitudes font grandir ton refuge. Gagne de l'XP, décore et avance à ton rythme.",
+  "description": "Budget fictif, agenda, courses et projets de voyage dans une application claire.",
   "start_url": "./#dashboard",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#101222",
-  "theme_color": "#101222",
+  "background_color": "#f7f9fd",
+  "theme_color": "#f7f9fd",
   "lang": "fr",
   "icons": [
     {
       "src": "favicon.svg",
-      "type": "image/svg+xml",
       "sizes": "any",
-      "purpose": "any maskable"
+      "type": "image/svg+xml"
     }
   ]
 }

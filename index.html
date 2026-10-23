@@ -1,1 +1,55 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c1120"><meta name="description" content="Practico Home : accomplis tes objectifs, gagne de l’XP, décore ton refuge et découvre des maisons, bateaux et avions dans un univers cosy."><title>Practico Home — Construis ton cocon, un jour à la fois</title><link rel="icon" href="favicon.svg?v=2" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="stylesheet" href="practico.css?v=cozy-v3-20261021"><link rel="stylesheet" href="cozy.css?v=cozy-v3-1-20261021"></head><body><div class="ambient"></div><div class="shell"><aside class="sidebar"><a class="brand" href="#dashboard"><span class="brandicon">✳</span><span>practico<span class="branddot">.</span><small>tes efforts, ton refuge</small></span></a><div class="side-label">ESPACE PERSONNEL</div><nav class="side-nav"><button data-view="house"><span>⌂</span> Mon refuge</button><button data-view="shop"><span>✦</span> Boutique déco</button><button data-view="dashboard" class="active"><span>◫</span> Tableau de bord</button><button data-view="tasks"><span>☑</span> Mes tâches</button><button data-view="habits"><span>◈</span> Mes habitudes</button><button data-view="focus"><span>◷</span> Concentration</button><button data-view="journal"><span>✎</span> Mes notes</button></nav><div class="side-bottom"><div class="side-promo"><span>✦ UNE PETITE VICTOIRE À LA FOIS</span><p>Tu n'as pas besoin d'être parfait. Juste d'avancer.</p></div><button class="account-btn" id="sideAccount"><span class="avatar">☺</span><span><b id="sideName">Mode invité</b><small id="sideHint">Connexion facultative</small></span><span>↗</span></button></div></aside><div class="workspace"><header class="topbar"><div class="crumb">MON ESPACE <span>/</span> <b id="crumbName">Vue d'ensemble</b></div><div class="top-actions"><div id="gameHud" class="cozy-top-hud"></div><span class="live-dot"></span><span class="top-date" id="topDate"></span><button id="authButton" class="btn btn-outline">Se connecter</button></div></header><main id="main" aria-live="polite"></main><footer>© Practico Home · Construis ton cocon, une victoire à la fois · Gratuit, sans argent réel</footer></div></div><nav class="mobile-nav"><button data-view="house">⌂<small>Mon refuge</small></button><button data-view="dashboard" class="active">◫<small>Accueil</small></button><button data-view="tasks">☑<small>Tâches</small></button><button data-view="shop">✦<small>Boutique</small></button><button data-view="focus">◷<small>Focus</small></button></nav><dialog id="authDialog"><form id="authForm" class="auth-form"><button type="button" class="dialog-close" id="closeAuth">✕</button><div class="auth-mark">✳</div><h2>Ton espace t'attend.</h2><p>Connecte-toi ou crée ton compte gratuitement pour retrouver tes progrès sur tes appareils.</p><label>E-mail<input name="email" type="email" required autocomplete="email" placeholder="toi@exemple.com"></label><label>Mot de passe<input name="password" type="password" required minlength="6" autocomplete="current-password" placeholder="Au moins 6 caractères"></label><button type="submit" class="btn btn-primary" data-auth="login">Se connecter →</button><button type="submit" class="btn btn-ghost" data-auth="signup">Créer mon compte</button><p class="form-message" id="authMessage"></p></form></dialog><div id="toast" role="status" aria-live="polite"></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="config.js"></script><script src="cozy.js?v=cozy-v3-1-20261021"></script><script src="practico.js?v=cozy-v3-20261021"></script></body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f9fd">
+<meta name="description" content="Practico : organisez votre budget fictif, vos courses, vos voyages et votre agenda depuis un seul espace. Aucun argent réel.">
+<title>Practico — Votre vie, vos projets, votre budget</title>
+<link rel="icon" href="favicon.svg?v=budget1" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="budget.css?v=20261023a">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" aria-label="Navigation principale">
+<a class="brand" href="#dashboard" aria-label="Practico, accueil"><span class="brand-mark">p<span>.</span></span><span class="brand-name">practico<small>Votre quotidien, simplifié.</small></span></a>
+<div class="side-head">MON ESPACE</div>
+<nav class="navigation">
+<button data-page="dashboard" class="active"><span class="nav-icon">◫</span> Vue d'ensemble</button>
+<button data-page="budget"><span class="nav-icon">◉</span> Mon budget</button>
+<button data-page="calendar"><span class="nav-icon">▦</span> Agenda</button>
+<button data-page="shop"><span class="nav-icon">▤</span> Courses & achats</button>
+<button data-page="travel"><span class="nav-icon">✈</span> Voyages & projets</button>
+</nav>
+<div class="side-head account-label">MON COMPTE</div>
+<nav class="navigation"><button data-page="account"><span class="nav-icon">♙</span> Profil et données</button></nav>
+<div class="sidebar-bottom"><div class="aside-tip"><span>✳ UN SEUL ENDROIT</span><strong>Vos idées, vos dépenses et vos projets.</strong><p>Planifiez librement, sans connecter votre banque.</p></div><div class="demo-tag"><span class="demo-dot"></span> SIMULATION • AUCUN ARGENT RÉEL</div></div>
+</aside>
+<div class="workspace">
+<header class="topbar"><div class="breadcrumbs"><span>MON ESPACE</span><span class="slash">/</span><strong id="pageCrumb">Vue d'ensemble</strong></div><div class="header-right"><span id="headerMonth" class="header-month"></span><span class="header-demo">● Mode simulation</span><button id="accountBtn" class="profile-button" aria-label="Se connecter ou voir mon compte"><span class="profile-avatar">P</span><span id="profileLabel">Invité</span></button></div></header>
+<main id="main" tabindex="-1"><div class="loading-state">Ouverture de votre espace Practico…</div></main>
+<footer>Practico · Simulation budgétaire indépendante · Aucun paiement, aucune donnée bancaire collectée.</footer>
+</div>
+</div>
+<nav class="mobile-navigation" aria-label="Navigation mobile">
+<button data-page="dashboard"><span>⌂</span><small>Accueil</small></button>
+<button data-page="budget"><span>◉</span><small>Budget</small></button>
+<button data-page="calendar"><span>▦</span><small>Agenda</small></button>
+<button data-page="shop"><span>▤</span><small>Courses</small></button>
+<button data-page="account"><span>♙</span><small>Compte</small></button>
+</nav>
+<dialog id="authDialog" class="modal">
+<div class="dialog-wrap"><button class="dialog-x" type="button" data-close-dialog aria-label="Fermer">✕</button><div class="dialog-glyph">p.</div><h2>Bienvenue dans Practico</h2><p>Créez un compte pour synchroniser votre budget et vos projets sur vos appareils. Pas besoin de connecter une banque.</p>
+<form id="authForm" class="form-stack">
+<label>Adresse e-mail<input class="field" name="email" type="email" placeholder="vous@exemple.fr" required autocomplete="email"></label>
+<label>Mot de passe<input class="field" name="password" type="password" minlength="6" required autocomplete="current-password" placeholder="Au moins 6 caractères"></label>
+<div class="form-buttons"><button type="submit" class="button primary" data-auth="login">Se connecter</button><button type="submit" class="button outline" data-auth="signup">Créer un compte</button></div><p id="authStatus" class="form-hint" aria-live="polite"></p>
+</form></div>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="budget.js?v=20261023a"></script>
+</body>
+</html>
